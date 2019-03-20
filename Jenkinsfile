@@ -19,6 +19,7 @@ pipeline {
 		sh 'docker rm -f cicd-master || echo "Removed Existing Container"'
 		sh 'docker run --name cicd-master -p 8081:80 -d cicd-master'
 		sh 'selenium-side-runner /usr/test.side'
+	    }
 	}
         stage('Push to AWS ECR') {
             steps {

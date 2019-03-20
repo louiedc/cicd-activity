@@ -1,1 +1,63 @@
-master file update 3
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {
+  box-sizing: border-box;
+}
+
+/* Create three equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 33.33%;
+  padding: 10px;
+  height: 300px; /* Should be removed. Only for demonstration */
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.text-center {
+  text-align: center;
+}
+
+iframe {
+  border: 1px solid gray;
+  height:75vh;
+}
+</style>
+</head>
+<body>
+
+<h2 class="text-center">CICD Activity</h2>
+
+<div class="row">
+  <div class="column">
+    <h3 class="text-center">Group 1</h3>
+    <iframe src="http://192.168.10.235:8082" width="100%" frameBorder="0" id="group1"></iframe>
+  </div>
+  <div class="column border-left border-right">
+    <h3 class="text-center">Group 2</h3>
+    <iframe src="http://192.168.10.235:8083" width="100%" frameBorder="0" id="group2"></iframe>
+  </div>
+  <div class="column">
+    <h3 class="text-center">Group 3</h3>
+    <iframe src="http://192.168.10.235:8084" width="100%" frameBorder="0" id="group3"></iframe>
+  </div>
+</div>
+
+<script>
+  setInterval(function(){
+    document.getElementById("group1").src+="";
+    document.getElementById("group2").src+="";
+    document.getElementById("group3").src+="";
+  }, 5000);
+</script>
+
+</body>
+</html>

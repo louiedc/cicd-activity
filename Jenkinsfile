@@ -25,9 +25,9 @@ pipeline {
                 sh '''
                    ssh -l aaron_delrosario -i ~/.ssh/codecommit_rsa 192.168.200.227 << EOF
                    eval $(aws ecr get-login --no-include-email)
-                   docker rm -f cicd-master || echo "Removed Existing Container"
+                   docker service rm cicd-master
                    docker pull 135671754298.dkr.ecr.us-east-1.amazonaws.com/cicd-master:latest
-                   docker run --name cicd-master -p 8081:80 -d 135671754298.dkr.ecr.us-east-1.amazonaws.com/cicd-master:latest
+                   sh /opt/devops/CICD/service_master.sh
                 '''
             }
         }
